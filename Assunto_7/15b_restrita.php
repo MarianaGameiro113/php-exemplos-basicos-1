@@ -1,0 +1,25 @@
+<?php
+// Página restrita.
+session_start();
+
+// Verifica se o usuário está logado.
+if (!isset($_SESSION['usuario'])) {
+    header("Location: 15a_sistema.php");
+    exit();
+}
+?>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Página Restrita</title>
+</head>
+<body>
+    <!-- Exibe o nome do usuário logado -->
+    <h2>Bem-vindo, <?php echo $_SESSION['usuario']; ?>!</h2>
+    <p>Esta é uma página restrita, apenas para usuários logados.</p>
+    <!-- Sai da página restrita -->
+    <a href="15c_logout.php">Logout</a>
+</body>
+</html>
